@@ -1,19 +1,14 @@
-DECLARE
-first number :=0;
-Second number:=1;
-third  number;
-n number:=8;
+CREATE OR REPLACE PROCEDURE findFactorial
+AS
+n number;
+fac number:=1;
 i number;
 BEGIN
-dbms_output.put_line('Fibonacci series is:');
- dbms_output.put_line(first);
-dbms_output.put_line(second);
-FOR i iN 2..n
+n:=&n;
+FOR i IN 1..n
 LOOP
-third := first + second ;
-first:= second ;
-second:= third;
-dbms_output.put_line(third);
+fac:= fac * i ;
 END LOOP;
+dbms_output.put_line('Factorial='||fac);
 END;
 /
